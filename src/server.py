@@ -1,7 +1,7 @@
 import time
 import random
 
-from prometheus_client import start_http_server, Summary
+from prometheus_client import start_wsgi_server, Summary
 
 
 # Create a metric to track time spent and requests made.
@@ -17,7 +17,8 @@ def process_request(t):
 
 if __name__ == '__main__':
     # Start up the server to expose the metrics.
-    start_http_server(8000)
+    # start_http_server == start_wsgi_server
+    start_wsgi_server(8000)
 
     # Generate some requests.
     while True:
